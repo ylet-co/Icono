@@ -470,7 +470,6 @@ async function callTool(name, args) {
     case 'get_stats':
       return ok({ ...getStats(), tags: TAGS.length });
 
-    /* @@MCP-CASES@@ */
     default:
       return fail(`Unknown tool: ${name}`);
   }

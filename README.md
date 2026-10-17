@@ -147,10 +147,13 @@ web-ui-design(skill)/    the design skill that produced the interface
 ## Tests
 
 ```bash
-npm test                    # API + MCP smoke tests
+npm test                    # SVG well-formedness + API + MCP smoke tests
 node scripts/ui-test.mjs    # boots index.html + app.js in a DOM against a live API
 ```
 
+* `scripts/svg-test.mjs` — samples 5,278 SVGs across every glyph and variant (rotating palettes,
+  sizes, stroke multipliers and padding) and parses each as XML, asserting an `<svg>` root on the
+  24×24 grid. Also validates the sprite.
 * `scripts/smoke.mjs` — assertions over every route, including the failure paths (404s,
   injection attempts, over-limit batches, pagination, determinism, cache headers).
 * `scripts/mcp-smoke.mjs` — raw JSON-RPC `initialize` → `tools/list` → `tools/call` for every

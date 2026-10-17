@@ -192,7 +192,6 @@ export function buildOpenApi(version) {
           responses: { 200: { description: 'Rendered icons', content: { 'application/json': { schema: { $ref: '#/components/schemas/BatchResult' } } } } },
         },
       },
-      /* @@PATHS@@ */
     },
     components: {
       schemas: {
