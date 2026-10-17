@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bg-glow" cx="75%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#8B5E3C" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#8B5E3C" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#1E1814" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="num-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C79A72" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#8B5E3C" stop-opacity="0.06"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="24" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="630" fill="#1E1814"/>
+  <rect width="1200" height="630" fill="url(#bg-glow)"/>
+  
+  <!-- Subtle Grid Lines -->
+  <g opacity="0.08" stroke="#EDE3D6" stroke-width="1">
+    <line x1="0" y1="105" x2="1200" y2="105"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Giant Highlighted Numeral in Background -->
+  <text x="600" y="410" font-family="Bricolage Grotesque, system-ui, sans-serif" font-size="240" font-weight="800" letter-spacing="-12" text-anchor="middle" fill="url(#num-grad)">1,000,000</text>
+
+  <!-- Brand Header: New Icono Vector Lens Logo -->
+  <g transform="translate(84, 76)">
+    <!-- Logo Mark Tile -->
+    <rect width="56" height="56" rx="14" fill="#8B5E3C"/>
+    <path d="M17.5 26.2 C17.5 19.2 22.7 15.7 29.7 15.7 C32.3 15.7 35 16.6 37.6 18.3" stroke="#F7F1E8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <path d="M38.5 29.7 C38.5 36.7 33.2 40.2 26.2 40.2 C23.6 40.2 21 39.3 18.3 37.6" stroke="#F7F1E8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <polygon points="28,22.7 31.5,28 28,33.2 24.5,28" fill="#F7F1E8"/>
+    
+    <!-- Wordmark -->
+    <text x="74" y="41" font-family="Bricolage Grotesque, system-ui, sans-serif" font-size="36" font-weight="700" letter-spacing="-1" fill="#EDE3D6">Icono</text>
+    
+  </g>
+
+  <!-- Main Headline -->
+  <g transform="translate(84, 250)">
+    <text x="0" y="0" font-family="Bricolage Grotesque, system-ui, sans-serif" font-size="84" font-weight="800" letter-spacing="-3.5" fill="#EDE3D6">A million icons.</text>
+    <text x="0" y="88" font-family="Bricolage Grotesque, system-ui, sans-serif" font-size="84" font-weight="800" letter-spacing="-3.5" fill="#C79A72">Zero files.</text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="156" font-family="DM Sans, sans-serif" font-size="24" font-weight="400" fill="#A8998A">272 hand-drawn glyphs · 400 mathematical looks · 10 palettes</text>
+    <text x="0" y="192" font-family="DM Sans, sans-serif" font-size="22" font-weight="400" fill="#A8998A">Generated purely in browser arithmetic. Works offline.</text>
+  </g>
+
+  <!-- Right Side Floating Icon Cards Showcase -->
+  <!-- Card 1: Vector Spark / Central Aperture -->
+  <g transform="translate(860, 110) rotate(-4)">
+    <rect width="124" height="124" rx="26" fill="#2A221C" stroke="rgba(199,154,114,0.35)" stroke-width="1.5"/>
+    <path d="M62 38 C62 48 56 54 44 62 C56 70 62 76 62 86 C62 76 68 70 80 62 C68 54 62 48 62 38 Z" fill="#C79A72"/>
+    <circle cx="62" cy="62" r="3" fill="#1E1814"/>
+    <text x="62" y="110" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" fill="#A8998A">spark--v162</text>
+  </g>
+
+  <!-- Card 2: Arrow -->
+  <g transform="translate(1015, 200) rotate(5)">
+    <rect width="116" height="116" rx="24" fill="#2A221C" stroke="rgba(237,227,214,0.15)" stroke-width="1.5"/>
+    <path d="M42 58 L68 58 M56 46 L68 58 L56 70" fill="none" stroke="#EDE3D6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="58" y="102" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" fill="#A8998A">arrow-right</text>
+  </g>
+
+  <!-- Card 3: Lock -->
+  <g transform="translate(820, 270) rotate(2)">
+    <rect width="132" height="132" rx="28" fill="#2A221C" stroke="rgba(237,227,214,0.15)" stroke-width="1.5"/>
+    <rect x="44" y="60" width="44" height="36" rx="8" fill="none" stroke="#EDE3D6" stroke-width="4"/>
+    <path d="M51 60 V48 C51 40 57 34 66 34 C75 34 81 40 81 48 V60" fill="none" stroke="#C79A72" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="66" cy="78" r="3.5" fill="#EDE3D6"/>
+    <text x="66" y="118" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" fill="#A8998A">lock--v320</text>
+  </g>
+
+  <!-- Card 4: Compass / Shield -->
+  <g transform="translate(980, 360) rotate(-3)">
+    <rect width="124" height="124" rx="26" fill="#2A221C" stroke="rgba(237,227,214,0.15)" stroke-width="1.5"/>
+    <circle cx="62" cy="62" r="28" fill="none" stroke="#EDE3D6" stroke-width="3.5"/>
+    <polygon points="62,42 71,62 62,82 53,62" fill="#C79A72"/>
+    <text x="62" y="110" font-family="DM Mono, monospace" font-size="11" text-anchor="middle" fill="#A8998A">compass--v080</text>
+  </g>
+
+  <!-- Bottom Bar Info -->
+  <g transform="translate(84, 555)">
+    <text x="0" y="0" font-family="DM Mono, monospace" font-size="15" font-weight="500" fill="#C79A72">ylet-co/Icono · Apache-2.0</text>
+  </g>
+</svg>

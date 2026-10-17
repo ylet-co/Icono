@@ -1,3 +1,4 @@
+import Lenis from 'lenis';
 import {
   renderIcon,
   filterGlyphs,
@@ -27,6 +28,7 @@ const S = {
   scale: 1,
   join: 'round',
   pal: 'calm',
+  transparentBg: false,
   cat: '',
   q: '',
   tab: 'svg',
@@ -125,32 +127,95 @@ function marquee() {
 }
 marquee();
 
+/* Lenis smooth scroll engine + 3D scroll physics */
+let lenis = null;
+if (!rm) {
+  try {
+    lenis = new Lenis({
+      duration: 1.15,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 0.95,
+      touchMultiplier: 1.4,
+      infinite: false
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  } catch (e) {
+    console.warn('Lenis smooth scroll fallback:', e);
+  }
+}
+
+let targetVel = 0;
+let currentVel = 0;
+let scrollYPos = window.scrollY || 0;
+
+if (lenis) {
+  lenis.on('scroll', e => {
+    targetVel = e.velocity || 0;
+    scrollYPos = e.scroll || 0;
+    $('nav')?.classList.toggle('on', scrollYPos > 24);
+  });
+} else {
+  window.addEventListener('scroll', () => {
+    const cur = window.scrollY;
+    targetVel = cur - scrollYPos;
+    scrollYPos = cur;
+    $('nav')?.classList.toggle('on', scrollYPos > 24);
+  }, { passive: true });
+}
+
+function updateScrollPhysics() {
+  currentVel += (targetVel - currentVel) * 0.16;
+  targetVel *= 0.92;
+  const clamped = Math.max(-14, Math.min(14, currentVel));
+  const pitch = (clamped * 0.32).toFixed(2);
+  const skew = (clamped * -0.2).toFixed(2);
+  root.style.setProperty('--scroll-y', scrollYPos.toFixed(1) + 'px');
+  root.style.setProperty('--scroll-vel', clamped.toFixed(2));
+  root.style.setProperty('--scroll-pitch', pitch + 'deg');
+  root.style.setProperty('--scroll-skew', skew + 'deg');
+  requestAnimationFrame(updateScrollPhysics);
+}
+if (!rm) requestAnimationFrame(updateScrollPhysics);
+
+/* smooth scroll helper for targets */
+function scrollToTarget(selectorOrEl, offset = -70) {
+  const target = typeof selectorOrEl === 'string' ? document.querySelector(selectorOrEl) : selectorOrEl;
+  if (!target) return;
+  if (lenis) {
+    lenis.scrollTo(target, { offset, duration: 1.15 });
+  } else {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+/* smooth anchor scroll */
+document.querySelectorAll('a[href^="#"], a[href^="index.html#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    const hash = href.includes('#') ? href.slice(href.indexOf('#')) : '';
+    if (hash && hash !== '#' && document.querySelector(hash)) {
+      e.preventDefault();
+      scrollToTarget(hash);
+      try { history.pushState(null, null, hash); } catch (_) {}
+    }
+  });
+});
+
 $('mq').addEventListener('click', e => {
   const mt = e.target.closest('.mt');
   if (!mt) return;
   S.slug = mt.dataset.s;
   all();
-  $('browse').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  scrollToTarget('#browse');
   toast(`Selected ${S.slug}`);
 });
-
-/* scroll skew */
-let lastScroll = scrollY;
-let vel = 0;
-let skewFrame;
-addEventListener('scroll', () => {
-  const current = scrollY;
-  vel += ((current - lastScroll) - vel) * 0.18;
-  lastScroll = current;
-  if (!rm && !skewFrame) {
-    skewFrame = requestAnimationFrame(() => {
-      const skew = Math.max(-5, Math.min(5, -vel * 0.2));
-      $('mq').style.transform = `skewX(${skew}deg)`;
-      skewFrame = null;
-    });
-  }
-  $('nav').classList.toggle('on', scrollY > 24);
-}, { passive: true });
 
 /* browse & workbench */
 const cats = [

@@ -7,14 +7,20 @@
 <meta name="description" content="1,088,000 recolorable SVG icons, generated in your browser from 272 hand-drawn glyphs. Free and open source.">
 <meta name="theme-color" content="#8B5E3C">
 <meta name="color-scheme" content="light dark">
-<link rel="canonical" href="https://YOUR-DOMAIN/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Icono">
-<meta property="og:title" content="Icono: a million icons, zero files"><meta property="og:description" content="1,088,000 recolorable SVG icons, generated in your browser from 272 hand-drawn glyphs. Free and open source.">
-<meta property="og:url" content="https://YOUR-DOMAIN/"><meta property="og:image" content="https://YOUR-DOMAIN/og-image.png">
-<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Icono: a million icons, zero files."><meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Icono: a million icons, zero files"><meta name="twitter:description" content="1,088,000 recolorable SVG icons, generated in your browser from 272 hand-drawn glyphs. Free and open source."><meta name="twitter:image" content="https://YOUR-DOMAIN/og-image.png">
-<script>(function(){try{var s=localStorage.getItem('icono.theme');var d=matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.setAttribute('data-theme',s==='light'||s==='dark'?s:(d?'dark':'light'))}catch(e){}})();</script>
+<meta property="og:title" content="Icono: a million icons, zero files">
+<meta property="og:description" content="1,088,000 recolorable SVG icons, generated in your browser from 272 hand-drawn glyphs. Free and open source.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:secure_url" content="og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Icono: a million icons, zero files">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Icono: a million icons, zero files">
+<meta name="twitter:description" content="1,088,000 recolorable SVG icons, generated in your browser from 272 hand-drawn glyphs. Free and open source.">
+<meta name="twitter:image" content="og-image.png">
+<script>(function(){try{var s=localStorage.getItem('icono.theme');var d=matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.setAttribute('data-theme',s==='light'||s==='dark'?s:(d?'dark':'light'));if(window.location.origin&&!window.location.origin.startsWith('file:')){var fullImg=new URL('og-image.png',window.location.href).href;var oi=document.querySelector('meta[property="og:image"]');if(oi)oi.content=fullImg;var ti=document.querySelector('meta[name="twitter:image"]');if(ti)ti.content=fullImg;}}catch(e){}})();</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest">
 <link rel="stylesheet" href="css/tokens.css"><link rel="stylesheet" href="css/style.css">
 </head>
@@ -111,7 +117,7 @@
     <div>
       <div class="gr" id="grid"></div>
     </div>
-    <aside class="panel" id="panel" aria-label="Icon inspector">
+    <aside class="panel" id="panel" data-lenis-prevent aria-label="Icon inspector">
       <div class="panel-head">
         <div class="pn"><h3 id="pname"></h3><code id="pid"></code></div>
         <div class="panel-actions">
@@ -151,6 +157,12 @@
           <span class="pal-label" id="pal-label">Theme Default</span>
         </div>
       </div>
+      <div class="f f-trans">
+        <label for="chk-trans" class="chk-label">
+          <span>Transparent background</span>
+          <input id="chk-trans" type="checkbox">
+        </label>
+      </div>
       <div class="code">
         <div class="ct">
           <button data-t="svg">SVG</button>
@@ -158,12 +170,13 @@
           <button data-t="uri">Data URI</button>
           <button data-t="id">ID</button>
         </div>
-        <pre id="code"></pre>
+        <pre id="code" data-lenis-prevent></pre>
       </div>
       <div class="ac">
         <button class="btn p" id="cp">Copy Code</button>
         <button class="btn" id="dl">SVG</button>
         <button class="btn" id="dl-png">PNG</button>
+        <button class="btn" id="dl-png-trans" title="Download 512x512 transparent PNG (no background)">PNG (Transparent)</button>
       </div>
     </aside>
   </div>
