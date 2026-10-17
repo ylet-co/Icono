@@ -104,14 +104,16 @@ function download(filename, text, type = 'image/svg+xml') {
 }
 
 /* ── state ──────────────────────────────────────────────────────────── */
-const AXES = { weight: [1, 1.25, 1.5, 1.75, 2], scale: [0.9, 1, 1.1, 1.2] };
+/* Axis sliders carry a leading "any" position at index 0, so the browse grid shows the whole
+   stash by default and only narrows when the user deliberately picks a value. */
+const AXES = { weight: [null, 1, 1.25, 1.5, 1.75, 2], scale: [null, 0.9, 1, 1.1, 1.2] };
 
 const state = {
   q: '',
   category: '',
   style: '',
-  weightIndex: 2,
-  scaleIndex: 1,
+  weightIndex: 0,
+  scaleIndex: 0,
   palette: '',
   offset: 0,
   total: 0,
@@ -229,8 +231,10 @@ function queryFor(offset) {
   if (state.q) p.set('q', state.q);
   if (state.category) p.set('category', state.category);
   if (state.style) p.set('style', state.style);
-  p.set('weight', String(AXES.weight[state.weightIndex]));
-  p.set('scale', String(AXES.scale[state.scaleIndex]));
+  const weight = AXES.weight[state.weightIndex];
+  const scale = AXES.scale[state.scaleIndex];
+  if (weight !== null) p.set('weight', String(weight));
+  if (scale !== null) p.set('scale', String(scale));
   if (state.palette) p.set('palette', state.palette);
   p.set('order', 'variant');
   p.set('limit', '60');
@@ -292,8 +296,10 @@ async function loadPage({ append = false } = {}) {
 
 /* ── filters ────────────────────────────────────────────────────────── */
 function syncFilterLabels() {
-  $('[data-weight-out]').textContent = AXES.weight[state.weightIndex];
-  $('[data-scale-out]').textContent = `${Math.round(AXES.scale[state.scaleIndex] * 100)}%`;
+  const w = AXES.weight[state.weightIndex];
+  const s = AXES.scale[state.scaleIndex];
+  $('[data-weight-out]').textContent = w === null ? 'any' : String(w);
+  $('[data-scale-out]').textContent = s === null ? 'any' : `${Math.round(s * 100)}%`;
 }
 
 function buildPaletteSwatches() {
@@ -354,12 +360,12 @@ function wireFilters() {
   });
 
   $('[data-reset]').addEventListener('click', () => {
-    Object.assign(state, { q: '', category: '', style: '', weightIndex: 2, scaleIndex: 1, palette: '' });
+    Object.assign(state, { q: '', category: '', style: '', weightIndex: 0, scaleIndex: 0, palette: '' });
     search.value = '';
     $('[data-filter="category"]').value = '';
     $('[data-filter="style"]').value = '';
-    $('[data-filter="weightIndex"]').value = '2';
-    $('[data-filter="scaleIndex"]').value = '1';
+    $('[data-filter="weightIndex"]').value = '0';
+    $('[data-filter="scaleIndex"]').value = '0';
     syncFilterLabels();
     buildPaletteSwatches();
     loadPage();

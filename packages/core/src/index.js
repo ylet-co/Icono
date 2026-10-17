@@ -96,8 +96,11 @@ export function renderIcon(request = {}) {
       return { ok: false, error: `Unknown variant: ${variant}` };
     }
     vIndex = explicit;
-  } else if (vIndex === null) {
+  } else if (hasAxisParams(request)) {
+    // An explicit axis request is more specific than a variant baked into the id.
     vIndex = variantIndex({ weight: request.weight, cap: request.cap, style: request.style, scale: request.scale, join: request.join });
+  } else if (vIndex === null) {
+    vIndex = DEFAULT_VARIANT_INDEX;
   }
 
   const pal = getPalette(palette);
@@ -148,6 +151,13 @@ function pascal(name) {
     .filter(Boolean)
     .map((w) => w[0].toUpperCase() + w.slice(1))
     .join('');
+}
+
+/** True when the caller asked for a specific style axis rather than a variant id. */
+function hasAxisParams(request) {
+  return ['weight', 'cap', 'style', 'scale', 'join'].some(
+    (key) => request[key] !== undefined && request[key] !== null && request[key] !== '',
+  );
 }
 
 export { DEFAULT_VARIANT_INDEX as defaultVariantIndex };
