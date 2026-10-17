@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Icono — 1,088,000 recolorable SVG icons with an API and an MCP server</title>
+<meta name="description" content="Icono is a generated stash of 108,800 SVG icons across 10 palettes — 1,088,000 renderable icons. Recolour, restyle, download, and wire it into your app through a documented HTTP API or an MCP server." />
+<meta name="color-scheme" content="dark light" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+<link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+<a class="skip" href="#field">Skip to the icon field</a>
+
+<!-- ── vertical rail nav ─────────────────────────────────────────────── -->
+<nav class="rail" aria-label="Primary">
+  <a class="rail__mark" href="#top" aria-label="Icono home">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2l8.66 5v10L12 22l-8.66-5V7z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/><path d="M12 8.5l4.3 2.5v5L12 18.5 7.7 16v-5z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round" opacity=".55"/></svg>
+    <span class="rail__markText">Icono</span>
+  </a>
+  <ul class="rail__list">
+    <li><a class="rail__link is-active" href="#top" data-rail="top"><span class="rail__ico" data-icon="grid"></span><span class="rail__label">Stash</span></a></li>
+    <li><a class="rail__link" href="#field" data-rail="field"><span class="rail__ico" data-icon="search"></span><span class="rail__label">Field</span></a></li>
+    <li><a class="rail__link" href="#editor" data-rail="editor"><span class="rail__ico" data-icon="palette"></span><span class="rail__label">Editor</span></a></li>
+    <li><a class="rail__link" href="#api" data-rail="api"><span class="rail__ico" data-icon="terminal"></span><span class="rail__label">API</span></a></li>
+    <li><a class="rail__link" href="#mcp" data-rail="mcp"><span class="rail__ico" data-icon="blocks"></span><span class="rail__label">MCP</span></a></li>
+    <li><a class="rail__link" href="#docs" data-rail="docs"><span class="rail__ico" data-icon="file-text"></span><span class="rail__label">Docs</span></a></li>
+  </ul>
+  <div class="rail__foot">
+    <button class="rail__link rail__theme" type="button" data-theme-toggle aria-label="Switch theme">
+      <span class="rail__ico" data-icon="moon"></span><span class="rail__label">Theme</span>
+    </button>
+    <a class="rail__link" href="https://github.com/ylet-co/Icono" rel="noopener"><span class="rail__ico" data-icon="github"></span><span class="rail__label">Repo</span></a>
+  </div>
+</nav>
+
+<main class="shell" id="top">
+
+  <!-- ── kinetic hero ────────────────────────────────────────────────── -->
+  <header class="hero">
+    <div class="hero__drift" aria-hidden="true">
+      <div class="hero__row" data-drift="a"></div>
+      <div class="hero__row hero__row--rev" data-drift="b"></div>
+      <div class="hero__row" data-drift="c"></div>
+    </div>
+    <div class="hero__veil" aria-hidden="true"></div>
+
+    <div class="hero__body">
+      <p class="hero__kicker">
+        <span class="pulse" aria-hidden="true"></span>
+        Generated stash · deterministic · MIT-free forever
+      </p>
+
+      <h1 class="hero__count" aria-label="One million eighty eight thousand icons">
+        <span class="hero__digits" data-counter>0</span>
+      </h1>
+
+      <p class="hero__sub">
+        renderable icons. <b data-stat="baseIcons">108,800</b> generated SVGs
+        (<b data-stat="glyphs">272</b> glyphs × <b data-stat="variantsPerGlyph">400</b> variants)
+        recoloured through <b data-stat="palettes">10</b> palettes.
+      </p>
+
+      <form class="finder" role="search" data-finder autocomplete="off">
+        <span class="finder__ico" data-icon="search" aria-hidden="true"></span>
+        <input class="finder__input" type="search" name="q" placeholder="Try: send, back arrow, wallet, shield…" aria-label="Search the icon stash" data-search />
+        <button class="finder__go" type="submit">Find</button>
+      </form>
+
+      <ul class="hero__quick" data-quick>
+        <li><button type="button" data-quick-q="arrow-left">back button</button></li>
+        <li><button type="button" data-quick-q="send">send</button></li>
+        <li><button type="button" data-quick-q="search">search</button></li>
+        <li><button type="button" data-quick-q="close">close</button></li>
+        <li><button type="button" data-quick-q="settings">settings</button></li>
+        <li><button type="button" data-quick-q="trash">delete</button></li>
+        <li><button type="button" data-quick-q="download">download</button></li>
+      </ul>
+    </div>
+
+    <div class="hero__ticker" aria-hidden="true">
+      <div class="ticker" data-ticker></div>
+    </div>
+  </header>
+  <!-- ── the field: browse + filter + drawer ─────────────────────────── -->
+  <section class="field" id="field">
+    <div class="field__bar">
+      <div class="field__barInner">
+        <div class="field__meta">
+          <span class="tag tag--live" data-result-count>—</span>
+          <span class="field__hint" data-result-hint>reading the stash…</span>
+        </div>
+        <div class="field__controls">
+          <label class="ctl">
+            <span class="ctl__label">Category</span>
+            <select data-filter="category" class="ctl__select"></select>
+          </label>
+          <label class="ctl">
+            <span class="ctl__label">Style</span>
+            <select data-filter="style" class="ctl__select">
+              <option value="">any</option>
+              <option value="outline">outline</option>
+              <option value="duotone">duotone</option>
+              <option value="dashed">dashed</option>
+              <option value="soft">soft</option>
+              <option value="contrast">contrast</option>
+            </select>
+          </label>
+          <label class="ctl ctl--range">
+            <span class="ctl__label">Stroke <b data-weight-out>1.5</b></span>
+            <input type="range" min="0" max="4" step="1" value="2" data-filter="weightIndex" />
+          </label>
+          <label class="ctl ctl--range">
+            <span class="ctl__label">Scale <b data-scale-out>100%</b></span>
+            <input type="range" min="0" max="3" step="1" value="1" data-filter="scaleIndex" />
+          </label>
+          <div class="ctl ctl--palette">
+            <span class="ctl__label">Palette</span>
+            <div class="swatches" data-palettes></div>
+          </div>
+          <button class="btn btn--ghost" type="button" data-reset>Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="field__grid" data-grid aria-live="polite" aria-busy="true"></div>
+
+    <div class="field__more">
+      <button class="btn btn--wide" type="button" data-more>Load 60 more</button>
+    </div>
+  </section>
+  <!-- ── editor / recolor lab ────────────────────────────────────────── -->
+  <section class="lab" id="editor">
+    <div class="lab__head">
+      <h2 class="h2">Recolor lab</h2>
+      <p class="lede">
+        One glyph, infinite skins. Change the ink, the accent, the surface, the stroke and the plate,
+        then take the whole recoloured set — the same icon in twenty looks — in a single download.
+      </p>
+    </div>
+
+    <div class="lab__stage">
+      <div class="lab__preview">
+        <div class="lab__canvas" data-lab-canvas>
+          <div class="lab__plate" data-lab-plate></div>
+        </div>
+        <div class="lab__picked">
+          <span class="mono" data-lab-id>send--v162</span>
+          <span class="lab__tags" data-lab-tags></span>
+        </div>
+        <div class="lab__actions">
+          <button class="btn" type="button" data-lab-download><span data-icon="download"></span>Download SVG</button>
+          <button class="btn btn--ghost" type="button" data-lab-set><span data-icon="layers"></span>Download all 20</button>
+          <button class="btn btn--ghost" type="button" data-lab-copy><span data-icon="copy"></span>Copy SVG</button>
+        </div>
+      </div>
+
+      <form class="lab__controls" data-lab-form>
+        <div class="lab__row">
+          <label class="ctl">
+            <span class="ctl__label">Glyph</span>
+            <input class="ctl__input" type="text" data-lab-glyph value="send" list="glyph-list" />
+            <datalist id="glyph-list" data-glyph-list></datalist>
+          </label>
+          <label class="ctl">
+            <span class="ctl__label">Variant</span>
+            <select class="ctl__select" data-lab-variant></select>
+          </label>
+        </div>
+        <div class="lab__row">
+          <label class="ctl ctl--color">
+            <span class="ctl__label">Ink</span>
+            <input type="color" value="#F4F4F6" data-lab-color="color" />
+            <output class="mono" data-lab-color-out="color">#F4F4F6</output>
+          </label>
+          <label class="ctl ctl--color">
+            <span class="ctl__label">Accent</span>
+            <input type="color" value="#FF5C1A" data-lab-color="accent" />
+            <output class="mono" data-lab-color-out="accent">#FF5C1A</output>
+          </label>
+          <label class="ctl ctl--color">
+            <span class="ctl__label">Surface</span>
+            <input type="color" value="#0B0C0F" data-lab-color="surface" />
+            <output class="mono" data-lab-color-out="surface">#0B0C0F</output>
+          </label>
+        </div>
+        <div class="lab__row">
+          <label class="ctl ctl--range">
+            <span class="ctl__label">Size <b data-lab-out="size">64</b>px</span>
+            <input type="range" min="16" max="160" step="4" value="64" data-lab-range="size" />
+          </label>
+          <label class="ctl ctl--range">
+            <span class="ctl__label">Stroke ×<b data-lab-out="stroke">1</b></span>
+            <input type="range" min="0.5" max="2.5" step="0.1" value="1" data-lab-range="stroke" />
+          </label>
+          <label class="ctl ctl--range">
+            <span class="ctl__label">Padding <b data-lab-out="padding">0</b></span>
+            <input type="range" min="0" max="6" step="0.5" value="0" data-lab-range="padding" />
+          </label>
+        </div>
+        <div class="lab__row lab__row--tight">
+          <label class="switch">
+            <input type="checkbox" data-lab-toggle="background" checked />
+            <span class="switch__track" aria-hidden="true"></span>
+            <span class="switch__label">Background plate</span>
+          </label>
+          <button class="btn btn--ghost" type="button" data-lab-palette-random><span data-icon="shuffle"></span>Surprise me</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="lab__set">
+      <div class="lab__setHead">
+        <h3 class="h3">The set</h3>
+        <p class="micro">Twenty recolours of the same glyph — ten palettes plus ten generated hues.</p>
+      </div>
+      <div class="setgrid" data-lab-set-grid></div>
+    </div>
+  </section>
+  <!-- ── api ─────────────────────────────────────────────────────────── -->
+  <section class="band" id="api">
+    <div class="band__head">
+      <span class="band__index">01</span>
+      <h2 class="h2">The API does the same thing, without the mouse</h2>
+      <p class="lede">
+        Every control on this page is a query parameter. Point an <code>&lt;img&gt;</code>, a build step
+        or an agent at the endpoint and you get the identical bytes back — the render is deterministic,
+        so a URL is a permanent reference to an icon.
+      </p>
+    </div>
+
+    <div class="band__split">
+      <div class="codepane">
+        <div class="codepane__bar"><span class="dot"></span><span class="mono">curl</span></div>
+        <pre class="code" data-code="curl"></pre>
+      </div>
+      <div class="codepane">
+        <div class="codepane__bar"><span class="dot"></span><span class="mono">live result</span></div>
+        <div class="codepane__live" data-api-live></div>
+      </div>
+    </div>
+
+    <ul class="routes" data-routes></ul>
+
+    <p class="band__foot">
+      Full reference: <a href="/docs/API.md" class="link">docs/API.md</a> ·
+      machine-readable spec: <a href="/api/v1/openapi.json" class="link mono">GET /api/v1/openapi.json</a>
+    </p>
+  </section>
+
+  <!-- ── mcp ─────────────────────────────────────────────────────────── -->
+  <section class="band band--mcp" id="mcp">
+    <div class="band__head">
+      <span class="band__index">02</span>
+      <h2 class="h2">Or let your agent hold the whole stash</h2>
+      <p class="lede">
+        Icono ships an MCP server over stdio. Drop the block below into your client config and the model
+        can search, recolour, batch-render and write SVG files straight to your repo — no API keys, no
+        network, no rate limits.
+      </p>
+    </div>
+
+    <div class="band__split band__split--mcp">
+      <div class="codepane">
+        <div class="codepane__bar"><span class="dot"></span><span class="mono">mcp client config</span></div>
+        <pre class="code" data-code="mcp"></pre>
+        <button class="btn btn--ghost btn--copy" type="button" data-copy-target="mcp"><span data-icon="copy"></span>Copy config</button>
+      </div>
+      <div class="tools" data-tools></div>
+    </div>
+
+    <p class="band__foot">
+      Tool reference and prompt recipes: <a href="/docs/MCP.md" class="link">docs/MCP.md</a> ·
+      how the glyphs are built: <a href="/docs/ICON-ENGINE.md" class="link">docs/ICON-ENGINE.md</a>
+    </p>
+  </section>
+
+  <!-- ── docs ────────────────────────────────────────────────────────── -->
+  <section class="band band--docs" id="docs">
+    <div class="band__head">
+      <span class="band__index">03</span>
+      <h2 class="h2">Docs, and the design skill that built this page</h2>
+      <p class="lede">
+        The design system behind this interface is written down, and the skill that produced it lives in
+        the repository next to the code — so the next screen you build here inherits the same rules.
+      </p>
+    </div>
+    <div class="docgrid" data-docs></div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot__mark">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2l8.66 5v10L12 22l-8.66-5V7z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></svg>
+      <span>Icono</span>
+    </div>
+    <p class="foot__note">
+      <b data-foot-total>1,088,000</b> renderable icons ·
+      <b data-foot-base>108,800</b> generated glyph variants ·
+      Apache-2.0
+    </p>
+    <p class="foot__note foot__note--dim">
+      Icons are generated on request, not stored. Every URL on this page is a stable reference.
+    </p>
+  </footer>
+</main>
+
+<!-- ── inspector drawer ────────────────────────────────────────────── -->
+<aside class="drawer" data-drawer aria-hidden="true" aria-label="Icon inspector">
+  <button class="drawer__close" type="button" data-drawer-close aria-label="Close inspector"><span data-icon="x"></span></button>
+  <div class="drawer__inner" data-drawer-body></div>
+</aside>
+<div class="scrim" data-scrim hidden></div>
+
+<script type="module" src="/assets/app.js"></script>
+</body>
+</html>
+
