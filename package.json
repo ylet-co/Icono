@@ -1,0 +1,23 @@
+{
+  "name": "icono",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Icono — a stash of 1,000,000+ recolorable SVG icons with an HTTP API and an MCP server.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "start": "node apps/api/src/server.js",
+    "api": "node apps/api/src/server.js",
+    "mcp": "node apps/mcp/src/server.js",
+    "stats": "node scripts/stats.mjs",
+    "export": "node scripts/export-icons.mjs",
+    "smoke": "node scripts/smoke.mjs"
+  }
+}
