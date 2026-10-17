@@ -1,0 +1,14 @@
+{
+  "name": "@icono/api",
+  "version": "1.0.0",
+  "description": "Icono HTTP API — zero-dependency node:http server serving the JSON API, SVG renders, the browser UI and the docs.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
