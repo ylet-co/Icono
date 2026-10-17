@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Icono">
+  <rect width="64" height="64" rx="16" fill="#8B5E3C"/>
+  <!-- Outer precision bracket corners (Vector Viewfinder) -->
+  <path d="M19 27 V21 C19 18.8 20.8 17 23 17 H29" fill="none" stroke="#F7F1E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M45 37 V43 C45 45.2 43.2 47 41 47 H35" fill="none" stroke="#F7F1E8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Central 4-point vector glyph spark -->
+  <path d="M32 23 C32 27.5 30 30 25 32 C30 34 32 36.5 32 41 C32 36.5 34 34 39 32 C34 30 32 27.5 32 23 Z" fill="#F7F1E8"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Icono">
+  <rect width="64" height="64" rx="16" fill="#8B5E3C"/>
+  <path d="M20 30 C20 22 26 18 34 18 C37 18 40 19 43 21" stroke="#F7F1E8" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M44 34 C44 42 38 46 30 46 C27 46 24 45 21 43" stroke="#F7F1E8" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <polygon points="32,26 36,32 32,38 28,32" fill="#F7F1E8"/>
+</svg>
+
+

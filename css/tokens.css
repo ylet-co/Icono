@@ -1,0 +1,29 @@
+/* Icono brand tokens: muted brown, calm. Fonts are self-hosted from /fonts. */
+@font-face{font-family:"Bricolage Grotesque";font-weight:600;font-display:swap;src:url(../fonts/bricolage-grotesque-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Bricolage Grotesque";font-weight:700;font-display:swap;src:url(../fonts/bricolage-grotesque-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Bricolage Grotesque";font-weight:800;font-display:swap;src:url(../fonts/bricolage-grotesque-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:400;font-display:swap;src:url(../fonts/dm-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:500;font-display:swap;src:url(../fonts/dm-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:600;font-display:swap;src:url(../fonts/dm-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Mono";font-weight:400;font-display:swap;src:url(../fonts/dm-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Mono";font-weight:500;font-display:swap;src:url(../fonts/dm-mono-latin-500-normal.woff2) format("woff2")}
+:root{
+  --font-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --font-text:"DM Sans",ui-sans-serif,system-ui,sans-serif;
+  --font-mono:"DM Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --bg:#F2ECE3;      /* sand */
+  --bg2:#E9E0D3;     /* surface */
+  --bg3:#DFD3C2;     /* raised / hover */
+  --tx:#2B221C;      /* espresso */
+  --mut:#6F6054;     /* mocha (5.1:1 on sand) */
+  --ac:#8B5E3C;      /* clay brown (4.8:1 on sand) */
+  --acx:#F7F1E8;     /* text on accent */
+  --bd:rgba(58,44,34,.16);
+  --r:14px;--r-sm:10px;--r-lg:22px;--r-xl:32px;
+  --ease:cubic-bezier(.16,1,.3,1);--ease-io:cubic-bezier(.65,0,.35,1);--ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --shadow-subtle:0 1px 2px rgba(43,34,28,.05),0 6px 16px rgba(43,34,28,.04);
+}
+:root[data-theme="dark"]{
+  --bg:#1E1814;--bg2:#2A221C;--bg3:#342B23;--tx:#EDE3D6;--mut:#A8998A;--ac:#C79A72;--acx:#1E1814;--bd:rgba(237,227,214,.14);
+  --shadow-subtle:0 1px 2px rgba(0,0,0,.3),0 6px 16px rgba(0,0,0,.25);
+}
